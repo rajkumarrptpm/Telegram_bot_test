@@ -13,7 +13,9 @@ def reply_to_hi(update, context):
         update.message.reply_text("Here’s your link: https://google.com")
 
 def reply_to_any(update,context):
-    update.message.reply_text("Hello! Send 'hi' to get the link.")
+    text = update.message.text.lower()
+    if text != "hi":
+        update.message.reply_text("Hello! Send 'hi' to get the link.")
 
 def main():
     updater = Updater(BOT_TOKEN, use_context=True)
